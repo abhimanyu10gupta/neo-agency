@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify, abort
+from flask import Flask, send_from_directory, request, jsonify, abort
 
 from sqlalchemy import exc
 import json
@@ -10,9 +10,15 @@ from models import setup_db, Movie, Actor
 from backend.src.auth.auth import AuthError, requires_auth
 
 
-app = Flask(__name__, static_folder='frontend/build', static_url_path='')
+app = Flask(__name__, static_folder='frontend/build',
+            static_url_path='')
 setup_db(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route('/api/movies', methods=['GET'])
