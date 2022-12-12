@@ -6,11 +6,11 @@ import json
 from flask_cors import CORS
 import traceback
 
-from .database.models import setup_db, Movie, Actor
-from .auth.auth import AuthError, requires_auth
+from models import setup_db, Movie, Actor
+from backend.src.auth.auth import AuthError, requires_auth
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='frontend/build', static_url_path='')
 setup_db(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
