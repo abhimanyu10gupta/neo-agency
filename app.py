@@ -11,7 +11,7 @@ from backend.src.auth.auth import AuthError, requires_auth
 
 
 app = Flask(__name__, static_folder='frontend/build',
-            static_url_path='')
+            static_url_path='/')
 setup_db(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
