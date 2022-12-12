@@ -8,7 +8,7 @@ db = SQLAlchemy()
 
 database_filename = "database.db"
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = 'postgresql://postgres:asdasd@localhost:5432/agency'
+database_path = os.environ['DATABASE_URL']
 
 
 def setup_db(app):
