@@ -6,8 +6,8 @@ import json
 from flask_cors import CORS
 import traceback
 
-from models import setup_db, Movie, Actor
-from backend.src.auth.auth import AuthError, requires_auth
+from .models import setup_db, Movie, Actor
+from .backend.src.auth.auth import AuthError, requires_auth
 
 
 app = Flask(__name__, static_folder='frontend/build', static_url_path='')
