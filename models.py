@@ -1,7 +1,6 @@
 import os
 from sqlalchemy import Column, String, Integer, Date
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import Form
 from flask_migrate import Migrate
 import json
 
